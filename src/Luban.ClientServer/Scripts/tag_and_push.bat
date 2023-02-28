@@ -1,3 +1,3 @@
-docker tag luban-clientserver:latest focuscreativegames/luban-clientserver:latest
-docker push focuscreativegames/luban-clientserver:latest
+docker tag luban-clientserver:latest zl1030/luban-clientserver:latest
+docker push zl1030/luban-clientserver:latest
 pause

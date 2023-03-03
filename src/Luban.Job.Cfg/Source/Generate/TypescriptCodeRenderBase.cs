@@ -23,6 +23,7 @@ namespace Luban.Job.Cfg.Generate
                 var brightRequirePath = args.TypescriptBrightRequirePath;
                 var brightPackageName = args.TypescriptBrightPackageName;
                 bool isGenBinary = genType.EndsWith("bin");
+                bool isGenJson = genType.EndsWith("json");
                 if (isGenBinary)
                 {
                     if (args.TypescriptUsePuertsByteBuf)
@@ -51,7 +52,12 @@ namespace Luban.Job.Cfg.Generate
                     {
                         fileContent.Add(TypescriptStringTemplate.GetSerializeImports(brightRequirePath, brightPackageName));
                     }
-                    fileContent.Add(TypescriptStringTemplate.GetVectorImports(brightRequirePath, brightPackageName));
+
+                    if (!isGenJson)
+                    {
+                        fileContent.Add(TypescriptStringTemplate.GetVectorImports(brightRequirePath, brightPackageName));
+                    }
+                    
                 }
 
                 //fileContent.Add(@$"export namespace {ctx.TopModule} {{");
